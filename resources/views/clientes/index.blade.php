@@ -15,9 +15,14 @@
 <div class="alert alert-danger">{{ session('error') }}</div>
 @endif
 
-<button class="btn btn-primary mb-3" id="btnNuevoCliente" data-bs-toggle="modal" data-bs-target="#clienteModal">
-    <i class="fas fa-plus"></i> Nuevo Cliente
-</button>
+<div class="d-flex gap-2 mb-3">
+    <button class="btn btn-primary" id="btnNuevoCliente" data-bs-toggle="modal" data-bs-target="#clienteModal">
+        <i class="fas fa-plus"></i> Nuevo Cliente
+    </button>
+    <a href="{{ route('clientes.exportar.csv') }}" class="btn btn-success">
+        <i class="fas fa-file-csv"></i> Exportar CSV
+    </a>
+</div>
 
 <div class="card mb-4">
     <div class="card-body">

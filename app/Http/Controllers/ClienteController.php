@@ -54,4 +54,40 @@ class ClienteController extends Controller
         return redirect()->route('clientes.index')
             ->with('success', 'Cliente eliminado correctamente.');
     }
+
+    public function exportarCsv()
+    {
+        $clientes = Cliente::all();
+
+        $headers = [
+            'Content-Type'        => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="clientes_' . now()->format('Y-m-d') . '.csv"',
+        ];
+
+        $callback = function () use ($clientes) {
+            $file = fopen('php://output', 'w');
+
+            // BOM para acentos en Excel
+            fputs($file, "\xEF\xBB\xBF");
+
+            // Encabezados — separador ; para Excel en español
+            fputcsv($file, ['ID', 'DPI', 'Nombre', 'Teléfono', 'Dirección', 'Estado'], ';');
+
+            // Filas
+            foreach ($clientes as $cliente) {
+                fputcsv($file, [
+                    $cliente->id,
+                   "\t" . $cliente->dpi_cliente,
+                    $cliente->nombre1_cliente . ' ' . $cliente->apellido1_cliente,
+                    $cliente->telefono_cliente,
+                    $cliente->direccion_cliente,
+                    $cliente->activo_cliente,
+                ], ';');
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
 }

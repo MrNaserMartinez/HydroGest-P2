@@ -53,3 +53,6 @@ Route::resource('pagos', PagoController::class)
     ->only(['index', 'create', 'store']);
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/clientes/exportar/csv', [ClienteController::class, 'exportarCsv'])->name('clientes.exportar.csv');
