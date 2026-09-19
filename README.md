@@ -1,5 +1,12 @@
 # 💧 HidroGest
 
+**HEY, Naser Estuvo aquí**
+
+**Modificaciones realizadas:**
+1. Modo oscuro/claro
+2. exportar listado a CSV
+
+
 **Sistema de Gestión de Agua Potable**
 
 Proyecto final desarrollado en la **Universidad Mariano Gálvez de Guatemala — Campus Jutiapa**.
