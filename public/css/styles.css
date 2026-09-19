@@ -11731,3 +11731,45 @@ body {
   font-size: 0.75rem;
   border-radius: 0.375rem !important;
 }
+
+/* ── Dark Mode ────────────────────────────── */
+body.dark-mode {
+    background-color: #1a1a2e !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode #layoutSidenav_nav,
+body.dark-mode .sb-sidenav {
+    background-color: #16213e !important;
+}
+
+body.dark-mode .sb-topnav {
+    background-color: #0f3460 !important;
+}
+
+body.dark-mode .card {
+    background-color: #16213e !important;
+    border-color: #2a2a4a !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .table {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: rgba(255,255,255,0.05) !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #2a2a4a !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .modal-content {
+    background-color: #16213e !important;
+    color: #e0e0e0 !important;
+}

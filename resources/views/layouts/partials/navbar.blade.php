@@ -10,6 +10,10 @@
             <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
         </div>
     </form>
+    <!-- Botón Dark/Light Mode -->
+    <button id="btn-theme" class="btn btn-sm btn-outline-light me-2" title="Cambiar tema">
+        <span id="theme-icon">🌙</span>
+    </button>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
@@ -18,7 +22,6 @@
                 <li><a class="dropdown-item" href="#!">Settings</a></li>
                 <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                 <li>
-                    {{-- FIX I1: logout ahora es un form POST real (antes href="#" sin funcionar) --}}
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="dropdown-item">Logout</button>

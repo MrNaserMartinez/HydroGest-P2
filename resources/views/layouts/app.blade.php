@@ -9,6 +9,15 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     @stack('styles')
+    <script>
+        (function () {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.body.classList.add('dark-mode');
+                });
+            }
+        })();
+    </script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -31,6 +40,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     @stack('scripts')
+
+    <script>
+        // Aplica tema al cargar
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        document.getElementById('btn-theme').addEventListener('click', function () {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 
 </html>
